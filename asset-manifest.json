@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HW_2_v2_Form/static/css/main.7acaea2f.css",
+    "main.js": "/HW_2_v2_Form/static/js/main.07d3183d.js",
+    "index.html": "/HW_2_v2_Form/index.html",
+    "main.7acaea2f.css.map": "/HW_2_v2_Form/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/HW_2_v2_Form/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
