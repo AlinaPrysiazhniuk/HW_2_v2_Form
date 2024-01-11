@@ -12,7 +12,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter: '',
+    filter: '', //відповідє за інпут фільтрації
   };
 
   formSubmitHandler = ({ name, number }) => {
@@ -32,10 +32,13 @@ export class App extends Component {
     )
       ? alert(`${name} is already in contacts`)
       : this.setState(({ contacts }) => ({
+          //якщо такий контакт відсутній то в існуючий список додоаємо новий контакт
+          //а поверх нього розпилюємо список уже існуючих контактів
           contacts: [contact, ...contacts],
         }));
   };
 
+  //пошук контакту в списку
   findContacts = () => {
     const { filter, contacts } = this.state;
     return contacts.filter(contact =>
@@ -50,7 +53,7 @@ export class App extends Component {
     }));
   };
 
-  //фільтрація спику контактів по імені
+  //додаємо в інпут фільтру значення для пошуку контакту в няваному списку контактів
   changeFilterInput = event => {
     this.setState({ filter: event.target.value });
   };
