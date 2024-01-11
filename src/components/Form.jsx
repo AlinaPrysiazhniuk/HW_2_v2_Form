@@ -33,7 +33,7 @@ export class Form extends Component {
               value={name}
               onChange={this.handleChange}
               placeholder="Name"
-              // pattern="^[a-zA-Z]+\s[a-zA-Z]+$"
+              pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
               required
             />
           </label>
@@ -45,7 +45,7 @@ export class Form extends Component {
               value={number}
               onChange={this.handleChange}
               placeholder="Number"
-              // pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}"
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               required
             />
           </label>

@@ -22,6 +22,8 @@ export class App extends Component {
       number,
     };
 
+    //при додаванні нового контакту робимо перевірку на наявність номеру в
+    // телефонній книзі
     this.state.contacts.some(
       i =>
         (i.name.toLowerCase() === contact.name.toLowerCase() &&
@@ -41,12 +43,14 @@ export class App extends Component {
     );
   };
 
+  //видалення контакту
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 
+  //фільтрація спику контактів по імені
   changeFilterInput = event => {
     this.setState({ filter: event.target.value });
   };
