@@ -7,6 +7,7 @@ export class Form extends Component {
     number: '',
   };
 
+  //запис у локальний стейт даних, що вводять в інпути
   handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({
@@ -16,7 +17,7 @@ export class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(this.state); //передача через пропс при відправці форми локального стейту з даними
     this.setState({ name: '', number: '' });
   };
 
