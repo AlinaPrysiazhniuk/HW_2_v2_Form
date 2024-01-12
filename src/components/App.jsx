@@ -7,10 +7,10 @@ import { Filter } from './Filter';
 export class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '', //відповідє за інпут фільтрації
   };
@@ -64,8 +64,11 @@ export class App extends Component {
 
     const contactsList = localStorage.getItem('contacts');
     const parsecontactsList = JSON.parse(contactsList);
-    console.log(parsecontactsList);
-    this.setState({ contacts: parsecontactsList });
+
+    if (parsecontactsList) {
+      // console.log(parsecontactsList);
+      this.setState({ contacts: parsecontactsList });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
