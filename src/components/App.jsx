@@ -58,7 +58,36 @@ export class App extends Component {
     this.setState({ filter: event.target.value });
   };
 
+  componentDidMount() {
+    //викликається один раз коли компонет змонутвався
+    console.log('app mount');
+
+    const contactsList = localStorage.getItem('contacts');
+    const parsecontactsList = JSON.parse(contactsList);
+    console.log(parsecontactsList);
+    this.setState({ contacts: parsecontactsList });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    //викликається кожного разу коли змінються пропси чи стейт
+    console.log('app update');
+
+    if (this.state.contacts !== prevState.contacts) {
+      console.log('Update contacts');
+
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+
+    console.log(prevState); // стейт до оновлення компонента
+    console.log(this.state); //актуальний стейт після оновлення
+  }
+
+  //в методі рендер та componentDidUpdate не можна виклаликати метод setState тому що
+  // зациклиться компонент!!!
+  // його можна викликати лише при перевірці певної умови (наприклад на http запит)
+
   render() {
+    console.log('render');
     const { filter } = this.state;
     return (
       <>
